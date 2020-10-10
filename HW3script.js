@@ -1,5 +1,5 @@
 
-
+//Code Mirrored from master folder in homework file. Struggling to understand these concepts so made an effort to reverse engineer the working file to create my own.
 
 
 // Array of special characters to be included in password
@@ -117,8 +117,43 @@ var specialCharacters = [
         lowerCharacters : lowerCasedCharacters
     };
   }
-
+//function to create a random element
+  function createRandom(arr){
+      let randomArr = Math.floor(Math.random()*arr.length)
+  }
   
-  var generateBtn = document.querySelector('#generate');
+  //function to generate random password
+  function createPassword(){
+      var criteria = passwordCriteria();
+      var result = [];
+      var possibleCharacters = [];
+      var guaranteedCharacters = [];
 
-  generateBtn.addEventListener('click', passwordCriteria)
+      if (criteria.specialCharacters){
+          possibleChracters = possbleCharacters.concat(specialCharacters);
+          guaranteedCharacters.push(createRandom(specialCharacters));
+      }
+      if (criteria.numericCharacters){
+          possibleCharacters = possibleCharacters.concat(numericCharacters);
+          guaranteedCharacters.push(createRandom(numericCharacters));
+      }
+      if (criteria.upperCharacters){
+          possibleCharacters = possibleCharacters.concat(upperCharacters);
+          guaranteedCharacters.push(createRandom(upperCharacters));
+      }
+      if (criteria.lowerCharacters){
+          possibleCharacters = possibleCharacters.concat(lowerCharacters);
+          guaranteedCharacters.push(createRandom(lowerCharacters));
+      }
+      for (i = 0; i < criteria.length; i++){
+        var possibleCharacter = createRandom(possibleCharacters);
+        result.push(possibleCharacters)
+      }
+      for (i = 0; i < guaranteedCharacters.length; i++){
+        result[i] = guaranteedCharacters[i];
+      }
+      return result.join('');
+  }
+
+
+  var generateBtn = document.querySelector('#generate');
